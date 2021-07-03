@@ -16,7 +16,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    chatbar.cpp \
     main.cpp \
     widgetcarpublish.cpp \
     widgetchat.cpp \
@@ -26,7 +25,6 @@ SOURCES += \
     widgetregister.cpp
 
 HEADERS += \
-    chatbar.h \
     widgetcarpublish.h \
     widgetchat.h \
     widgetdailypublish.h \
@@ -35,7 +33,6 @@ HEADERS += \
     widgetregister.h
 
 FORMS += \
-    chatbar.ui \
     widgetcarpublish.ui \
     widgetchat.ui \
     widgetdailypublish.ui \
