@@ -17,6 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
+    mypushbutton.cpp \
+    publish.cpp \
     widgetcarpublish.cpp \
     widgetchat.cpp \
     widgetdailypublish.cpp \
@@ -25,6 +27,8 @@ SOURCES += \
     widgetregister.cpp
 
 HEADERS += \
+    mypushbutton.h \
+    publish.h \
     widgetcarpublish.h \
     widgetchat.h \
     widgetdailypublish.h \
@@ -33,6 +37,7 @@ HEADERS += \
     widgetregister.h
 
 FORMS += \
+    publish.ui \
     widgetcarpublish.ui \
     widgetchat.ui \
     widgetdailypublish.ui \
@@ -44,3 +49,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc

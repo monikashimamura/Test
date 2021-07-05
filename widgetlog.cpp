@@ -13,21 +13,19 @@ WidgetLog::WidgetLog(QWidget *parent)
     setWindowTitle("驴友故事");
     chat=new WidgetChat;
     rgster=new WidgetRegister;
-    connect(ui->pushButton,&QPushButton::clicked,[=](){
-        //延时进入到选择注册中 自身隐藏
-        QTimer::singleShot(500,this,[=](){
-            rgster->setGeometry(this->geometry());//每次切换场景都保持位置一致
-            this->hide();/*自身隐藏*/
-            rgster->show();
-        });
+    //进入到选择注册中
+    connect(ui->pushButton,&QPushButton::clicked,this,[=](){
+        this->hide();
+        rgster->show();
     });
-    connect(ui->pushButton_2,&QPushButton::clicked,[=](){
-        //延时进入到选择聊天中 自身隐藏
-        QTimer::singleShot(500,this,[=](){
-            chat->setGeometry(this->geometry());//每次切换场景都保持位置一致
-            this->hide();/*自身隐藏*/
-            chat->show();
-        });
+    //进入到选择聊天中
+    connect(ui->pushButton_2,&QPushButton::clicked,this,[=](){
+        this->hide();
+        chat->show();
+    });
+    connect(rgster,&WidgetRegister::toLog,this,[=](){
+        rgster->hide();
+        this->show();
     });
 
 }

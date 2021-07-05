@@ -14,8 +14,9 @@ public:
     explicit WidgetRegister(QWidget *parent = nullptr);
     ~WidgetRegister();
 signals:
-    //写一个自定义信号，告诉主场景 点击了返回
-    void backFromRegiter() const;
+    void toLog();//返回登录界面
+
+public slots:
 
 private:
     Ui::WidgetRegister *ui;

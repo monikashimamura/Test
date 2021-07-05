@@ -1,22 +1,28 @@
-#ifndef WIDGETCARPUBLISH_H
-#define WIDGETCARPUBLISH_H
+//#ifndef WIDGETCARPUBLISH_H
+//#define WIDGETCARPUBLISH_H
+//#include"widgetnoticepublish.h"
+//#include <QWidget>
 
-#include <QWidget>
+//namespace Ui {
+//class WidgetCarPublish;
+//}
 
-namespace Ui {
-class WidgetCarPublish;
-}
+//class WidgetCarPublish : public QWidget
+//{
+//    Q_OBJECT
 
-class WidgetCarPublish : public QWidget
-{
-    Q_OBJECT
+//public:
+//    explicit WidgetCarPublish(QWidget *parent = nullptr);
+//    ~WidgetCarPublish();
+//signals:
+//    void CarPublishtoDailyPublish();//返回
+//    void CarPublishtoNoticePublish();//返回
+//    WidgetNoticePublish * p =NULL;
 
-public:
-    explicit WidgetCarPublish(QWidget *parent = nullptr);
-    ~WidgetCarPublish();
+//public slots:
 
-private:
-    Ui::WidgetCarPublish *ui;
-};
+//private:
+//    Ui::WidgetCarPublish *ui;
+//};
 
-#endif // WIDGETCARPUBLISH_H
+//#endif // WIDGETCARPUBLISH_H

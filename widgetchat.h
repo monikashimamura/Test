@@ -1,7 +1,7 @@
 #ifndef WIDGETCHAT_H
 #define WIDGETCHAT_H
 //发送->发表日志
-#include"widgetdailypublish.h"
+#include"publish.h"
 #include <QWidget>
 
 namespace Ui {
@@ -15,7 +15,8 @@ class WidgetChat : public QWidget
 public:
     explicit WidgetChat(QWidget *parent = nullptr);
     ~WidgetChat();
-    WidgetDailyPublish * dailyPublic =NULL;
+    Publish * publish =NULL;
+
 
 private:
     Ui::WidgetChat *ui;
