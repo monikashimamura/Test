@@ -1,5 +1,7 @@
 #include "widgetlog.h"
 #include "ui_widgetlog.h"
+#include"mypushbutton.h"
+#include<QPainter>
 #include<QTimer>
 #include<QTextEdit>
 WidgetLog::WidgetLog(QWidget *parent)
@@ -13,13 +15,29 @@ WidgetLog::WidgetLog(QWidget *parent)
     setWindowTitle("驴友故事");
     chat=new WidgetChat;
     rgster=new WidgetRegister;
+    MyPushButton * Btn1 =new MyPushButton(":/res/12ca11be98ef182c.png",":/res/37b073fb41aeae00.png");
+    Btn1->setParent(this);
+    Btn1->move(120,320);
+    connect(Btn1,&QPushButton::clicked,this,[=](){
+        Btn1->zoom1();
+        Btn1->zoom2();
+        QTimer::singleShot(500,this,[=](){});
+    });
+    MyPushButton * Btn2 =new MyPushButton(":/res/12ca11be98ef182c.png",":/res/37b073fb41aeae00.png");
+    Btn2->setParent(this);
+    Btn2->move(340,320);
+    connect(Btn2,&QPushButton::clicked,this,[=](){
+        Btn2->zoom1();
+        Btn2->zoom2();
+        QTimer::singleShot(500,this,[=](){});
+    });
     //进入到选择注册中
-    connect(ui->pushButton,&QPushButton::clicked,this,[=](){
+    connect(Btn1,&QPushButton::clicked,this,[=](){
         this->hide();
         rgster->show();
     });
     //进入到选择聊天中
-    connect(ui->pushButton_2,&QPushButton::clicked,this,[=](){
+    connect(Btn2,&QPushButton::clicked,this,[=](){
         this->hide();
         chat->show();
     });
@@ -29,7 +47,13 @@ WidgetLog::WidgetLog(QWidget *parent)
     });
 
 }
-
+void WidgetLog::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    QPixmap pix;
+    pix.load(":/res/1.png");
+    painter.drawPixmap(0,0,this->width(),this->height()*0.4,pix);
+}
 WidgetLog::~WidgetLog()
 {
     delete ui;

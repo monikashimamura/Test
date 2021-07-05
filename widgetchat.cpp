@@ -4,6 +4,7 @@
 #include<QDebug>
 #include<QString>
 #include<QPushButton>
+#include"publish.h"
 #include"mypushbutton.h"
 WidgetChat::WidgetChat(QWidget *parent) :
     QWidget(parent),
@@ -24,14 +25,23 @@ WidgetChat::WidgetChat(QWidget *parent) :
         sendBtn->zoom2();
         QTimer::singleShot(500,this,[=](){});
     });
-    connect(sendBtn,&QPushButton::clicked,[=](){
-        //延时进入到选择日志发布中 自身隐藏
-        QTimer::singleShot(500,this,[=](){
-            publish->setGeometry(this->geometry());//每次切换场景都保持位置一致
-            this->hide();/*自身隐藏*/
-            publish->show();
-        });
+    MyPushButton * Btn =new MyPushButton(":/res/12ca11be98ef182c.png",":/res/37b073fb41aeae00.png");
+    Btn->setParent(this);
+    Btn->move(550,440);
+    connect(Btn,&QPushButton::clicked,this,[=](){
+        Btn->zoom1();
+        Btn->zoom2();
+        QTimer::singleShot(500,this,[=](){});
     });
+    connect(sendBtn,&QPushButton::clicked,this,[=](){
+        this->hide();
+        publish->show();
+    });
+    connect(publish,&Publish::toChat,this,[=](){
+        publish->hide();
+        this->show();
+    });
+
 
 
 }

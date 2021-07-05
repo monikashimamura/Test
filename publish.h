@@ -14,6 +14,11 @@ class Publish : public QWidget
 public:
     explicit Publish(QWidget *parent = nullptr);
     ~Publish();
+    void paintEvent(QPaintEvent *);
+signals:
+    void toChat();//返回聊天界面，可改
+
+public slots:
 
 private:
     Ui::Publish *ui;

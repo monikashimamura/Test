@@ -16,6 +16,8 @@ class WidgetLog : public QWidget
 public:
     explicit WidgetLog(QWidget *parent = nullptr);
     ~WidgetLog();
+    //重写paintEvent函数 画背景图
+    void paintEvent(QPaintEvent *);
     WidgetChat * chat =NULL;
     WidgetRegister * rgster=NULL;
 private:
